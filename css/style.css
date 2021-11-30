@@ -1,0 +1,294 @@
+@charset "utf-8";
+
+*,*::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Kiwi Maru', serif;
+}
+
+/*ナビゲーション*/
+@media only screen and (max-width:437px){
+
+.menu-btn {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    background-color: rgba(57, 57, 57, 0.6);
+}
+
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 36px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.menu-btn span:before {
+    bottom: 8px;
+}
+.menu-btn span:after {
+    top: 8px;
+}
+
+
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#menu-btn-check {
+    display: none;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    background-color: #3584bb;
+}
+.menu-content ul {
+    padding: 70px 10px 0;
+    text-align: center;
+}
+.menu-content ul li {
+    border-bottom: solid 1px #ffffff;
+    list-style: none;
+}
+.menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    color:#ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+}
+.menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 11px;
+    top: 16px;
+}
+
+}
+
+@media only screen and (max-width:437px){
+	.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: rgba(57, 57, 57, 0.6);
+    transition: all 0.5s;/*アニメーション設定*/
+}
+
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;/*メニューを画面内へ*/
+}
+
+}
+
+
+
+/*FV*/
+@media only screen and (max-width:437px) {
+
+	.img {
+		width: 100%;
+		height: 931px;
+		background: url("../img/topback.jpg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
+	.img:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 931px;
+		background-color: #6d6d6d;
+		z-index: 1;
+		opacity: 0.5;
+	}
+
+	.top-title {
+		font-family: 'Roboto Slab', serif;
+		position: absolute;
+		color: white;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 60px;
+		text-align: center;
+		z-index: 2;
+	}
+
+	.topbuttotn {
+		margin-bottom: 83px;
+	}
+
+	.button-menu {
+	    position: absolute;
+	    font-family: 'Kiwi Maru', serif;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    margin: 0 auto;
+	    padding: 1em 2em;
+	    width: 213px;
+	    height: 66px;
+	    color: #fff;
+	    font-size: 25px;
+	    font-weight: 700;
+	    border: 3px solid #fff;
+	    border-radius: 45px;
+	    top: 100%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    z-index: 2;
+    }
+
+    .button-yoyaku {
+    	position: absolute;
+	    font-family: 'Kiwi Maru', serif;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    margin: 0 auto;
+	    padding: 1em 2em;
+	    width: 213px;
+	    height: 66px;
+	    color: #fff;
+	    font-size: 25px;
+	    font-weight: 700;
+	    border: 3px solid #fff;
+	    border-radius: 45px;
+	    top: 112%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    z-index: 2;
+    }
+
+}
+
+
+/*about*/
+
+@media only screen and (max-width:437px){
+
+	.chef-pro {
+		font-size: 25px;
+		text-align: center;
+		margin-top: 45px;
+		text-decoration:underline;
+		text-decoration-color:black;
+		text-underline-offset:0.2em;
+	}
+
+	.chef {
+		display: block;
+		position: relative;
+		width: 316px;
+		height: auto;
+        left: -57px;
+        margin-top: -474px;
+	}
+
+	.chef-back {
+		display: block;
+		position: relative;
+		width: 405px;
+		height: 388px;
+		clip-path: inset(0px 0px 0px 0px round 20px 20px 20px 20px);
+		z-index: -999;
+		margin-top: 50px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.about-text {
+		font-family: roboto;
+		position: absolute;
+		margin-top: 85px;
+        margin-left: 219px;
+        color: white;
+        width: 190px;
+	}
+
+	.chef-res {
+		font-size: 12px;
+	}
+
+	.chef-name {
+		position: relative;
+		font-size: 23px;
+		margin-top: 9px;
+		
+	}
+
+	.chef-name::after {
+		position: absolute;
+		content: "";
+		width: 70px;
+		height: 2px;
+		background-color: white;
+		top: 30px;
+		left: 0px;
+	}
+
+	.chef-text {
+		font-size: 13px;
+		margin-top: 35px;
+		letter-spacing: 0.1em;
+		line-height: 1.4em;
+	}
+
+
+
+}
+
+/*店内詳細*/
+
+@media only screen and (max-width:437px){
+	.shop-back {
+		background-image: url(../img/shopback.jpg);
+	    background-repeat:no-repeat;
+	    padding-bottom:5rem;
+	    background-size: cover;
+	    background-position: center;
+
+	}
+}
